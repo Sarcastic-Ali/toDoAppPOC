@@ -28,13 +28,13 @@ class ToDoAppApplicationTests {
 	}
 	@Test
 	public void getCustomerByTheirId() {
-		Customer customer = customerRepo.findById(212).get();
+		Customer customer = customerRepo.findById(212L).get();
 		assertEquals("My customer is completed", customer.getName());
 	}
 	
 	@Test
 	public void deleteCustomer() {
-		assertThat(customerRepo.existsById(23)).isFalse();
+		assertThat(customerRepo.existsById(23L)).isFalse();
 	}
 
 
