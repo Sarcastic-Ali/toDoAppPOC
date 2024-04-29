@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ToDoAppApplication<ToDo-App>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.telus.ToDoAppApplication",
+            "projectName": "ToDo-App",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
