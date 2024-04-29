@@ -5,8 +5,20 @@ import org.apache.commons.lang3.StringUtils;
 import com.telus.dto.CustomerDto;
 import com.telus.models.Customer;
 
+
+/**
+ * Mapper class responsible for converting between Customer and CustomerDto objects.
+ */
 public class CustomerMapper {
 
+
+    /**
+     * Converts a CustomerDto object to a Customer object.
+     *
+     * @param customerDto The CustomerDto object to convert.
+     * @return A Customer object.
+     * @throws IllegalArgumentException If the customerDto is null or if the customer name is null or empty.
+     */
     public static Customer dtoToCustomer(CustomerDto customerDto) {
         if (customerDto == null) {
             return null;
@@ -23,6 +35,13 @@ public class CustomerMapper {
         return customer;
     }
 
+    /**
+     * Converts a Customer object to a CustomerDto object.
+     *
+     * @param customer The Customer object to convert.
+     * @return A CustomerDto object.
+     * @throws IllegalArgumentException If the customer is null or if the customer name is null or empty.
+     */
     public static CustomerDto customerToDto(Customer customer) {
         if (customer == null) {
             return null;

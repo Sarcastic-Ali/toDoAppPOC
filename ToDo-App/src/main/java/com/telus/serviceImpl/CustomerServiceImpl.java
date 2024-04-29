@@ -16,14 +16,29 @@ import com.telus.repositories.CustomerRepo;
 import com.telus.service.CustomerService;
 import com.telus.util.ResponseConstants;
 
+
+/**
+ * Service implementation class for managing Customer entities.
+ */
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
 
+    /**
+     * Creates a new customer.
+     *
+     * @param customerDto The CustomerDto object containing the details of the customer to be created.
+     * @return The CustomerDto object representing the newly created customer.
+     */
     @Autowired
     private CustomerRepo customerRepo;
 
+    /**
+     * Retrieves all customers.
+     *
+     * @return A list of CustomerDto objects representing all customers.
+     */
     @Override
     public CustomerDto createNewCustomer(CustomerDto customerDto) {
         logger.info("Enter in createNewCustomer Method..");
@@ -33,6 +48,13 @@ public class CustomerServiceImpl implements CustomerService {
         return customerToDto;
     }
 
+    /**
+     * Retrieves a customer by its ID.
+     *
+     * @param customerId The ID of the customer to retrieve.
+     * @return The CustomerDto object representing the retrieved customer.
+     * @throws CustomerNotFoundException If no customer with the specified ID is found.
+     */
     @Override
     public List<CustomerDto> getAllCustomers() {
         logger.info("Enter in getAllCustomers Method ..");
@@ -50,6 +72,14 @@ public class CustomerServiceImpl implements CustomerService {
         return CustomerMapper.customerToDto(customer);
     }
 
+    /**
+     * Updates a customer by its ID.
+     *
+     * @param customerDto The CustomerDto object containing the updated details of the customer.
+     * @param customerId  The ID of the customer to update.
+     * @return The CustomerDto object representing the updated customer.
+     * @throws CustomerNotFoundException If no customer with the specified ID is found.
+     */
     @Override
     public CustomerDto updateCustomerById(CustomerDto customerDto, long customerId) {
         logger.info("Enter in updateCustomerById Method..");
@@ -60,6 +90,13 @@ public class CustomerServiceImpl implements CustomerService {
         return CustomerMapper.customerToDto(updatedCustomer);
     }
 
+
+    /**
+     * Deletes a customer by its ID.
+     *
+     * @param customerId The ID of the customer to delete.
+     * @throws CustomerNotFoundException If no customer with the specified ID is found.
+     */
     @Override
     public void deleteCustomerById(long customerId) {
         logger.info("Enter in deleteCustomerById Method..");
